@@ -1,0 +1,54 @@
+<div class="container">
+    <form [formGroup]="firstForm" (ngSubmit)="submit()">
+        <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName">
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName">
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field>
+            <mat-label>Middle Name</mat-label>
+            <input matInput formControlName="middleName">
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field>
+            <input matInput placeholder="Date of birth" [matDatepicker]="myDatepicker" [min]="minDate" [max]="maxDate"
+                formControlName="dateOfBirth">
+            <mat-datepicker-toggle [for]="myDatepicker" matSuffix></mat-datepicker-toggle>
+            <mat-datepicker #myDatepicker></mat-datepicker>
+        </mat-form-field>
+
+        <br>
+
+        <label id="choose-gender-label">Gender</label><br><br>
+        <mat-radio-group aria-labelledby="choose-gender-label" color="primary" formControlName="gender">
+            <mat-radio-button class="radio-button" value="man">man</mat-radio-button>
+            <mat-radio-button class="radio-button" value="woman">woman</mat-radio-button>
+        </mat-radio-group>
+
+        <br>
+
+        <button mat-raised-button color="primary" [disabled]="firstForm.invalid">Добавить</button>
+    </form>
+    <mat-card *ngFor="let person of people$ | async" class="person-container">
+        First Name: {{ person.firstName }}
+        <br>
+        Last Name: {{ person.lastName }}
+        <br>
+        Middle Name: {{ person.middleName }}
+        <br>
+        Date of birth: {{ formatDate(person.dateOfBirth) }}
+        <br>
+        Gender: {{ person.gender }}
+    </mat-card>
+</div>

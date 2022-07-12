@@ -1,0 +1,46 @@
+table {
+    width: 100%;
+}
+
+.container {
+    margin-top: 40px;
+}
+
+mat-paginator {
+    margin-bottom: 40px;
+}
+
+.mat-column-id {
+    word-wrap: break-word;
+    white-space: unset;
+    flex: 0 0 20%;
+    width: 10%;
+}
+
+.mat-column-name {
+    word-wrap: break-word;
+    white-space: unset;
+    flex: 0 0 20%;
+    width: 20%;
+}
+
+.mat-column-username {
+    word-wrap: break-word;
+    white-space: unset;
+    flex: 0 0 20%;
+    width: 20%;
+}
+
+.mat-column-email {
+    word-wrap: break-word;
+    white-space: unset;
+    flex: 0 0 20%;
+    width: 30%;
+}
+
+.mat-column-city {
+    word-wrap: break-word;
+    white-space: unset;
+    flex: 0 0 20%;
+    width: 20%;
+}
