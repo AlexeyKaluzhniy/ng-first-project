@@ -8,18 +8,17 @@ import { FirstState } from '../state/first.state';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-first-page',
-  templateUrl: './first-page.component.html',
-  styleUrls: ['./first-page.component.scss']
+  selector: 'app-page-one',
+  templateUrl: './page-one.component.html',
+  styleUrls: ['./page-one.component.scss']
 })
-export class FirstPageComponent {
+export class PageOneComponent {
 
   firstForm: FormGroup;
 
   @Select(FirstState.getPeople) people$: Observable<Person[]> | undefined;
 
   constructor(private store: Store) {
-
     this.firstForm = new FormGroup({
       firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
@@ -27,11 +26,11 @@ export class FirstPageComponent {
       dateOfBirth: new FormControl('', Validators.required),
       gender: new FormControl('man'),
     });
-
   }
 
   submit() {
     this.store.dispatch(new AddPerson(this.firstForm.value));
+    this.firstForm.reset({gender: 'man'});
   }
 
   minDate: Date = new Date(1900, 1, 1);
@@ -40,5 +39,4 @@ export class FirstPageComponent {
   formatDate(date: string) {
     return moment(date).format('DD.MM.YYYY');
   }
-
 }

@@ -1,22 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FirstPageComponent } from './first-page/first-page.component';
-import { SecondPageComponent } from './second-page/second-page.component';
 
 const routes: Routes = [
+
+  { path: 'page-one', loadChildren: () => import('./page-one/page-one.module').then(m => m.PageOneModule) },
+  { path: 'page-two', loadChildren: () => import('./page-two/page-two.module').then(m => m.PageTwoModule) },
   {
     path: '',
-    redirectTo: 'FirstPage',
+    redirectTo: '',
     pathMatch: 'full'
   },
-  {
-    path: 'FirstPage',
-    component: FirstPageComponent
-  },
-  {
-    path: 'SecondPage',
-    component: SecondPageComponent
-  }
 ];
 
 @NgModule({

@@ -9,12 +9,11 @@ import { PersonFetch } from '../model/person-fetch.model';
 import { SecondState } from '../state/second.state';
 
 @Component({
-  selector: 'app-second-page',
-  templateUrl: './second-page.component.html',
-  styleUrls: ['./second-page.component.scss']
+  selector: 'app-page-two',
+  templateUrl: './page-two.component.html',
+  styleUrls: ['./page-two.component.scss']
 })
-export class SecondPageComponent implements OnInit {
-
+export class PageTwoComponent implements OnInit {
   peopleFetch: PersonFetch[] = [];
   dataSource!: MatTableDataSource<PersonFetch>;
   columns: string[] = ['id', 'name', 'username', 'email', 'city'];
@@ -43,5 +42,4 @@ export class SecondPageComponent implements OnInit {
 
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
-
 }

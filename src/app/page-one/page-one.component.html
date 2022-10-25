@@ -38,7 +38,7 @@
 
         <br>
 
-        <button mat-raised-button color="primary" [disabled]="firstForm.invalid">Добавить</button>
+        <button mat-raised-button color="primary" [disabled]="firstForm.invalid">Add</button>
     </form>
     <mat-card *ngFor="let person of people$ | async" class="person-container">
         First Name: {{ person.firstName }}
